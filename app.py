@@ -1,10 +1,13 @@
 import os
+os.environ['OPENAI_API_KEY']="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"
+
+from langchain.llms import OpenAI
 
 from flask import (Flask, redirect, render_template, request,
                    send_from_directory, url_for)
 
 app = Flask(__name__)
-
+llm = OpenAI(temperature=0.9)
 
 @app.route('/')
 def index():
@@ -21,8 +24,7 @@ def hello():
    name = request.form.get('name')
 
    if name:
-       print('Request for hello page received with name=%s' % name)
-       return render_template('hello.html', name = name)
+       return render_template('hello.html', name = llm(name))
    else:
        print('Request for hello page received with no name or blank name -- redirecting')
        return redirect(url_for('index'))
