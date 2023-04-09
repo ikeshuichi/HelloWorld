@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/cb807658-111a-4cb9-814f-fece034edc05/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/openaidemo20230409",
+    "appService.deploySubpath": "."
+}
